@@ -21,8 +21,8 @@
     - [Desenvolvimento com Spring Batch — Overview](https://giulianabezerra.medium.com/spring-batch-para-desenvolvimento-de-jobs-1674ec5b9a20)
 
   - Vídeos: 
-    - [O que você deveria saber sobre Spring Batch?](https://www.youtube.com/watch?v=ACaKKm00Tts)
     - [Visão geral do Spring Batch - Motivação, Arquitetura e Funcionalidades](https://www.youtube.com/watch?v=xcWwKsnn2lA)
+    - [O que você deveria saber sobre Spring Batch?](https://www.youtube.com/watch?v=ACaKKm00Tts)
     - [Tutoriais Spring Batch](https://www.youtube.com/playlist?list=PLiFLtuN04BS07Yw7rnoz1ytWCLu8yteVv)
     - [Da Arquitetura ao Deploy](https://www.youtube.com/playlist?list=PLiFLtuN04BS1c-JvhKFxYyeD-GVtnwUcx)
     - [Um guia para o Spring Batch 5.0](https://www.youtube.com/watch?v=Jzf9ofPy_xk)
