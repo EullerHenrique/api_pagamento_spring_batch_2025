@@ -6,8 +6,8 @@
   - Textos:
     - [Git Hub Spring Batch](https://github.com/spring-projects/spring-batch)
     - [Site Spring Batch](https://spring.io/batch)
-    - [https://www.baeldung.com/introduction-to-spring-batch](https://www.baeldung.com/introduction-to-spring-batch)
-    - [Introduction to Spring Batch](https://www.devmedia.com.br/introducao-ao-spring-batch/33284)
+    - [Introduction to Spring Batch](https://www.baeldung.com/introduction-to-spring-batch)
+    - [Introdução ao Spring Batch](https://www.devmedia.com.br/introducao-ao-spring-batch/33284)
     - [Frameworks Java, Spring Batch: Processamento de Dados em Lote](https://www.dio.me/articles/spring-batch-processamento-de-dados-em-lote)
     - [Desenvolvimento com Spring Batch — Overview](https://giulianabezerra.medium.com/spring-batch-para-desenvolvimento-de-jobs-1674ec5b9a20)
 
