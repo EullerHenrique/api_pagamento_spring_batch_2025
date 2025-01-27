@@ -30,5 +30,5 @@
     - [Um guia para o Spring Batch 5.0](https://www.youtube.com/watch?v=Jzf9ofPy_xk)
 
   - Cursos:
-    - https://www.udemy.com/course/curso-para-desenvolvimento-de-jobs-com-spring-batch/
-    - https://www.udemy.com/course/otimizacao-de-desempenho-para-jobs-spring-batch
+    - [Curso para desenvolvimento de jobs com Spring Batch](https://www.udemy.com/course/curso-para-desenvolvimento-de-jobs-com-spring-batch)
+    - [Otimização de desempenho para jobs Spring Batch](https://www.udemy.com/course/otimizacao-de-desempenho-para-jobs-spring-batch)
