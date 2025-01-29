@@ -1,18 +1,16 @@
 ## Conceitos
   ### Spring Batch
-  - Resumo:
-  
-  - Diagramas:
-    
+      
+## Diagramas
+
 <div align="center">
   <img src="https://github.com/EullerHenrique/api_pagamento_spring_batch_2025/blob/main/imgs/img_6.png" alt="Imagem 3" />
-
   <img src="https://github.com/EullerHenrique/api_pagamento_spring_batch_2025/blob/main/imgs/img_1.png" alt="Imagem 1" />
   <img src="https://github.com/EullerHenrique/api_pagamento_spring_batch_2025/blob/main/imgs/img_4.png" alt="Imagem 3" />
-  <br>
   <img src="https://github.com/EullerHenrique/api_pagamento_spring_batch_2025/blob/main/imgs/img_2.png" alt="Imagem 2" />
   <img src="https://github.com/EullerHenrique/api_pagamento_spring_batch_2025/blob/main/imgs/img_3.png" alt="Imagem 3" />
   <img src="https://github.com/EullerHenrique/api_pagamento_spring_batch_2025/blob/main/imgs/img_5.png" alt="Imagem 3" />
+  <img src="https://github.com/EullerHenrique/api_pagamento_spring_batch_2025/blob/main/imgs/img_7.png" alt="Imagem 3" />
 </div>
 
 ### Referências:
