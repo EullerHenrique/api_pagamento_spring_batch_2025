@@ -45,7 +45,7 @@
     - [Leitura de arquivos com conteúdo customizado utilizando Spring Batch](https://giulianabezerra.medium.com/leitura-de-arquivos-com-conteudo-customizado-utilizando-spring-batch-b72be2243c27)
     - [Criação de arquivos com nomes dinâmicos no Spring Batch](https://giulianabezerra.medium.com/criacao-de-arquivos-com-nomes-dinamicos-no-spring-batch-5e4667dda6e0)
       
-  - You Tube: 
+  - YouTube: 
     - [Visão geral do Spring Batch - Motivação, Arquitetura e Funcionalidades](https://www.youtube.com/watch?v=xcWwKsnn2lA)
     - [O que você deveria saber sobre Spring Batch?](https://www.youtube.com/watch?v=ACaKKm00Tts)
     - [Tutoriais Spring Batch](https://www.youtube.com/playlist?list=PLiFLtuN04BS07Yw7rnoz1ytWCLu8yteVv)
