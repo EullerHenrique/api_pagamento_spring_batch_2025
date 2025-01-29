@@ -56,3 +56,16 @@
   - Cursos:
     - [Curso para desenvolvimento de jobs com Spring Batch](https://www.udemy.com/course/curso-para-desenvolvimento-de-jobs-com-spring-batch)
     - [Otimização de desempenho para jobs Spring Batch](https://www.udemy.com/course/otimizacao-de-desempenho-para-jobs-spring-batch)
+   
+  - Repositórios:
+    - [Tests Spring Batch](https://github.com/giuliana-bezerra/TestsSpringBatch)
+    - [Composite Reader Job](https://github.com/giuliana-bezerra/LeitorCompostoJob)
+    - [Spring Batch Restartt](https://github.com/giuliana-bezerra/sb-restart)
+    - [Spring Batch Job Structuring](https://github.com/giuliana-bezerra/sb-job-structuring)
+    - [Spring Batch Conditional Flows](https://github.com/giuliana-bezerra/sb-conditional-flows)
+    - [Spring Batch Transactions](https://github.com/giuliana-bezerra/sb-transactions)
+    - [Spring Batch Distributed Transactions](https://github.com/giuliana-bezerra/sb-distributed-transactions)
+    - [Spring Batch Integration Tests](https://github.com/giuliana-bezerra/sb-integration-tests)
+    - [Spring Batch Flows](https://github.com/giuliana-bezerra/springbatch-flows)
+    - [Spring Batch Commit Interval](https://github.com/giuliana-bezerra/sb-commit-interval)
+    - [Spring Batch 5.0](https://github.com/giuliana-bezerra/guide-sb-v5)
