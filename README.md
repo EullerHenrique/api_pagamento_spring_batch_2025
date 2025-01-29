@@ -18,7 +18,7 @@
 ### Referências:
   
   - Slides:  
-    [Palestra Giuliana Bezerra](https://github.com/EullerHenrique/api_pagamento_spring_batch_2025/blob/main/slides/slides_giuliana_bezerra.pdf)
+    - [Palestra Giuliana Bezerra](https://github.com/EullerHenrique/api_pagamento_spring_batch_2025/blob/main/slides/slides_giuliana_bezerra.pdf)
 
   - Google:
     - [Git Hub Spring Batch](https://github.com/spring-projects/spring-batch)
