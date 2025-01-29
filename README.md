@@ -52,7 +52,7 @@
     - [Tutoriais Spring Batch](https://www.youtube.com/playlist?list=PLiFLtuN04BS07Yw7rnoz1ytWCLu8yteVv)
     - [Da Arquitetura ao Deploy](https://www.youtube.com/playlist?list=PLiFLtuN04BS1c-JvhKFxYyeD-GVtnwUcx)
     - [Um guia para o Spring Batch 5.0](https://www.youtube.com/watch?v=Jzf9ofPy_xk)
-    - [Jobs 90% mais rápidos utilizando Processamento Assincrono!](https://www.youtube.com/watch?v=AbQcWO91Bx4&list=PLiFLtuN04BS07Yw7rnoz1ytWCLu8yteVv&index=11)
+    - [Jobs 90% mais rápidos utilizando Processamento Assincrono](https://www.youtube.com/watch?v=AbQcWO91Bx4&list=PLiFLtuN04BS07Yw7rnoz1ytWCLu8yteVv&index=11)
 
   - Cursos:
     - [Curso para desenvolvimento de jobs com Spring Batch](https://www.udemy.com/course/curso-para-desenvolvimento-de-jobs-com-spring-batch)
