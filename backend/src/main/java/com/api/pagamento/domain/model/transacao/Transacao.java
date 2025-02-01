@@ -1,53 +1,47 @@
 package com.api.pagamento.domain.model.transacao;
 
-import com.api.pagamento.domain.model.transacao.descricao.DescricaoTransacao;
-import com.api.pagamento.domain.model.transacao.forma_pagamento.FormaPagamentoTransacao;
-import jakarta.persistence.*;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.hibernate.annotations.DynamicUpdate;
+import java.math.BigDecimal;
+import java.sql.Date;
+import java.sql.Time;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
-import java.io.Serial;
-import java.io.Serializable;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Column;
 
-/**
- * Entidade responsável por representar a tabela Transacao
- *
- * @author Euller Henrique
- */
-@Data
-@Entity
-@Builder
-@DynamicUpdate
-@NoArgsConstructor
-@AllArgsConstructor
-@Table(name = "transacao")
-public class Transacao implements Serializable {
+public record Transacao(
+		@Id Long id,
+		Integer tipo,
+		Date data,
+		BigDecimal valor,
+		Long cpf,
+		String cartao,
+		Time hora,
+		@Column("dono_loja") String donoDaLoja,
+		@Column("nome_loja") String nomeDaLoja) {
 
-    @Serial
-    private static final long serialVersionUID = 1L;
+	public Transacao withValor(BigDecimal valor) {
+		return new Transacao(
+				id, tipo, data, valor, cpf,
+				cartao, hora, donoDaLoja, nomeDaLoja);
+	}
 
-    @Id
-    @GeneratedValue(strategy= GenerationType.SEQUENCE, generator = "seq_transacao")
-    @SequenceGenerator(name = "seq_transacao", sequenceName = "seq_transacao", allocationSize=1)
-    private Long id;
+	public Transacao withData(String data) throws ParseException {
+		var dateFormat = new SimpleDateFormat("yyyyMMdd");
+		var date = dateFormat.parse(data);
 
-    @NotNull
-    @Column(length = 16)
-    private String cartao;
+		return new Transacao(
+				id, tipo, new Date(date.getTime()), valor, cpf,
+				cartao, hora, donoDaLoja, nomeDaLoja);
+	}
 
-    @Valid
-    @NotNull
-    @OneToOne(fetch = FetchType.LAZY, cascade= CascadeType.PERSIST)
-    private DescricaoTransacao descricao;
+	public Transacao withHora(String hora) throws ParseException {
+		var dateFormat = new SimpleDateFormat("HHmmss");
+		var date = dateFormat.parse(hora);
 
-    @Valid
-    @NotNull
-    @OneToOne(fetch = FetchType.LAZY, cascade=CascadeType.PERSIST)
-    private FormaPagamentoTransacao formaPagamento;
-
+		return new Transacao(
+				id, tipo, data, valor, cpf,
+				cartao, new Time(date.getTime()), donoDaLoja, nomeDaLoja);
+	}
 }
+

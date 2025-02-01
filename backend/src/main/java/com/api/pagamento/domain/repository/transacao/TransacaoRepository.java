@@ -1,6 +1,6 @@
 package com.api.pagamento.domain.repository.transacao;
 
-import com.api.pagamento.domain.model.transacao.Transacao;
+import com.api.pagamento.domain.model.transacao.cnab.TransacaoCnab;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
@@ -8,4 +8,4 @@ import org.springframework.data.jpa.repository.JpaRepository;
  *
  * @author Euller Henrique
  */
-public interface TransacaoRepository extends JpaRepository<Transacao, Long> { }
+public interface TransacaoRepository extends JpaRepository<TransacaoCnab, Long> { }

@@ -2,7 +2,7 @@ package com.api.pagamento.controller.transacao;
 
 import com.api.pagamento.domain.annotation.http.transacao.TransacaoApiResponses;
 import com.api.pagamento.domain.dto.response.transacao.TransacaoResponseDto;
-import com.api.pagamento.domain.dto.request.transacao.TransacaoRequestDto;
+import com.api.pagamento.domain.dto.request.transacao.cnab.TransacaoCnabRequestDto;
 import com.api.pagamento.domain.exception.http.BadRequestException;
 import com.api.pagamento.domain.exception.http.InternalServerErrorException;
 import com.api.pagamento.domain.exception.http.NotFoundException;
@@ -88,7 +88,7 @@ public class TransacaoController {
 	@Operation(summary = "Realiza um pagamento")
 	@TransacaoApiResponses
 	@PostMapping(value = "/pagar", produces = APPLICATION_JSON, consumes = APPLICATION_JSON)
-	public ResponseEntity<Object> pagar(@RequestBody @Valid TransacaoRequestDto request) {
+	public ResponseEntity<Object> pagar(@RequestBody @Valid TransacaoCnabRequestDto request) {
 
 		try {
 			TransacaoResponseDto transacaoDTO = transacaoDtoService.pagar(request);

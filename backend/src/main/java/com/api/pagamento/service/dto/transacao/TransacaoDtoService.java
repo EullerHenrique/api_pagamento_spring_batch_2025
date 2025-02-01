@@ -3,10 +3,10 @@ package com.api.pagamento.service.dto.transacao;
 import com.api.pagamento.domain.converter.Converter;
 import com.api.pagamento.service.model.transacao.TransacaoModelService;
 import com.api.pagamento.service.util.transacao.TransacaoUtilService;
-import com.api.pagamento.service.validator.transacao.TransacaoValidatorService;
-import com.api.pagamento.domain.dto.request.transacao.TransacaoRequestDto;
+import com.api.pagamento.service.valid.transacao.TransacaoValidatorService;
+import com.api.pagamento.domain.dto.request.transacao.cnab.TransacaoCnabRequestDto;
 import com.api.pagamento.domain.dto.response.transacao.TransacaoResponseDto;
-import com.api.pagamento.domain.model.transacao.Transacao;
+import com.api.pagamento.domain.model.transacao.cnab.TransacaoCnab;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -36,7 +36,7 @@ public class TransacaoDtoService {
 	 * @author Euller Henrique
 	 */
 	public TransacaoResponseDto buscarTransacao(Long id) {
-		Transacao transacao = transacaoModelService.buscarTransacao(id);
+		TransacaoCnab transacao = transacaoModelService.buscarTransacao(id);
 		return converter.originToDestiny(transacao, TransacaoResponseDto.class);
 	}
 
@@ -48,7 +48,7 @@ public class TransacaoDtoService {
 	 * @author Euller Henrique
 	 */
 	public List<TransacaoResponseDto> listarTransacoes() {
-		List<Transacao> transacoes = transacaoModelService.listarTransacoes();
+		List<TransacaoCnab> transacoes = transacaoModelService.listarTransacoes();
 		return converter.originToDestiny(transacoes, TransacaoResponseDto.class);
 	}
 
@@ -61,7 +61,7 @@ public class TransacaoDtoService {
      *      Dto com os dados da resposta da transação
 	 * @author Euller Henrique
      */
-	public TransacaoResponseDto pagar(TransacaoRequestDto request) {
+	public TransacaoResponseDto pagar(TransacaoCnabRequestDto request) {
 		transacaoValidatorService.validarTipoPagamentoAoPagar(request);
 
 		TransacaoResponseDto transacaoResponseDto = converter.originToDestiny(request, TransacaoResponseDto.class);
@@ -69,7 +69,7 @@ public class TransacaoDtoService {
 		transacaoResponseDto.getDescricao().setNsu(transacaoUtilService.obterNsu());
 		transacaoResponseDto.getDescricao().setCodigoAutorizacao(transacaoUtilService.obterCodigoAutorizacao());
 		transacaoResponseDto.getDescricao().setStatus(transacaoUtilService.obterStatusAoPagar());
-		Transacao transacaoNaoSalva = converter.originToDestiny(transacaoResponseDto, Transacao.class);
+		TransacaoCnab transacaoNaoSalva = converter.originToDestiny(transacaoResponseDto, TransacaoCnab.class);
 		transacaoResponseDto.setId(transacaoModelService.salvarTransacao(transacaoNaoSalva).toString());
 
 		return transacaoResponseDto;
@@ -85,7 +85,7 @@ public class TransacaoDtoService {
 	 * @author Euller Henrique
      */
 	public TransacaoResponseDto estornar(Long id) {
-		Transacao transacao = transacaoModelService.buscarTransacao(id);
+		TransacaoCnab transacao = transacaoModelService.buscarTransacao(id);
 		transacaoValidatorService.validarStatusTransacaoAoEstornar(transacao);
 
 		transacao.getDescricao().setStatus(transacaoUtilService.obterStatusAoEstornar());
