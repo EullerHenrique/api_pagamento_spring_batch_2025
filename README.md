@@ -115,6 +115,7 @@
     - [Otimização de desempenho para jobs Spring Batch](https://www.udemy.com/course/otimizacao-de-desempenho-para-jobs-spring-batch)
    
   - Repositórios:
+    - [Implementando Desafio Pag Net Utilizando Spring Batch](https://github.com/giuliana-bezerra/desafio-backend-pagnet)
     - [Tests Spring Batch](https://github.com/giuliana-bezerra/TestsSpringBatch)
     - [Composite Reader Job](https://github.com/giuliana-bezerra/LeitorCompostoJob)
     - [Spring Batch Restartt](https://github.com/giuliana-bezerra/sb-restart)
