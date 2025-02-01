@@ -34,5 +34,5 @@
     - [Implementando Desafio Pag Net Utilizando Spring Batch](https://www.youtube.com/playlist?list=PLiFLtuN04BS1c-JvhKFxYyeD-GVtnwUcx)
   
   - Notium:
-    - [Documento de Arquitetura](https://giulianabezerra.notion.site/Desafio-Backend-Pagnet-5bbd08f103e04d6d866b028cec6688b5)
+    - [Desafio Pag Net-Documento de Arquitetura](https://giulianabezerra.notion.site/Desafio-Backend-Pagnet-5bbd08f103e04d6d866b028cec6688b5)
 
