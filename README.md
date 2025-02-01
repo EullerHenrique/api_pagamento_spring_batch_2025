@@ -16,8 +16,14 @@
 
 - Em resumo, Spring Batch é uma solução poderosa para processamento de dados em lote, oferecendo mecanismos para controle, monitoramento e escalabilidade de tarefas críticas.
 
-- Obs:
-  - Para mais informações teóricas, acesse a branch [Study](https://github.com/EullerHenrique/api_pagamento_spring_batch_2025/tree/study)
+<div align="center">
+  
+  <img src="https://github.com/EullerHenrique/api_pagamento_spring_batch_2025/blob/study/imgs/img_1.png" alt="Imagem 1"  height="250px"/>
+  <img src="https://github.com/EullerHenrique/api_pagamento_spring_batch_2025/blob/study/imgs/img_4.png" alt="Imagem 3" height="250px"/>
+  <img src="https://github.com/EullerHenrique/api_pagamento_spring_batch_2025/blob/study/imgs/img_2.png" alt="Imagem 2" height="250px"/>
+  <img src="https://github.com/EullerHenrique/api_pagamento_spring_batch_2025/blob/study/imgs/img_3.png" alt="Imagem 3"  height="250px"/>
+  
+</div>
 
 ## Proposta:
   - Git Hub:
