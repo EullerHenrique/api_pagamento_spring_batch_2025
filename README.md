@@ -6,15 +6,34 @@
 
 - Spring Batch é um framework da Spring voltado para o processamento de grandes volumes de dados de forma eficiente e escalável. Ele fornece suporte para execução de tarefas em lote, como leitura, processamento e escrita de dados, garantindo robustez e reprocessamento em caso de falhas.
 
-- Principais vantagens:
+- Estrutura:
+  - **JobLauncher**: Responsável por iniciar um `Job`, acionando sua execução.
+  - **Job**: Representa um processo em lote completo. Cada `Job` é composto por um ou mais `Step(s)`.
+  - **Step**: Cada `Step` executa uma unidade de trabalho, como leitura, processamento e escrita de dados.
+  - **JobRepository**: Componente que gerencia o estado das execuções do batch, armazenando metadados sobre os jobs e passos executados.
+  - **ItemReader**: Responsável por ler os dados da fonte (banco de dados, arquivos, filas, etc.).
+  - **ItemProcessor**: Realiza transformações ou validações nos dados lidos antes de serem gravados.
+  - **ItemWriter**: Escreve os dados processados no destino desejado.
 
-  - Processamento escalável: Suporte a execução paralela e particionada para lidar com grandes volumes de dados.
-  - Gerenciamento de estado: Armazena o progresso dos jobs para permitir retomada em caso de falhas.
-  - Transações e controle de falhas: Garante consistência dos dados e reprocessamento seguro.
-  - Flexível e configurável: Suporte a diversas fontes de dados (banco de dados, arquivos, filas, etc.).
-  - Integração com o ecossistema Spring: Facilita a implementação em aplicações que já utilizam Spring Boot e outros módulos Spring.
+- Fluxo:
 
-- Em resumo, Spring Batch é uma solução poderosa para processamento de dados em lote, oferecendo mecanismos para controle, monitoramento e escalabilidade de tarefas críticas.
+  1. Um `Job` é iniciado pelo `JobLauncher`.
+  2. O `Job` contém um ou mais `Steps`, que são executados em sequência.
+  3. Cada `Step` pode ter um `ItemReader`, um `ItemProcessor` e um `ItemWriter`:
+     - O `ItemReader` lê os dados de uma fonte.
+     - O `ItemProcessor` processa e transforma os dados.
+     - O `ItemWriter` grava os dados no destino final.
+  4. O `JobRepository` armazena o estado das execuções, permitindo retomadas em caso de falha.
+   
+- **Principais vantagens:**
+
+  - **Processamento escalável**: Suporte a execução paralela e particionada para lidar com grandes volumes de dados.
+  - **Gerenciamento de estado**: Armazena o progresso dos jobs para permitir retomada em caso de falhas.
+  - **Transações e controle de falhas**: Garante consistência dos dados e reprocessamento seguro.
+  - **Flexível e configurável**: Suporte a diversas fontes de dados (banco de dados, arquivos, filas, etc.).
+  - **Integração com o ecossistema Spring**: Facilita a implementação em aplicações que já utilizam Spring Boot e outros módulos Spring.
+
+- **Em resumo**, Spring Batch é uma solução poderosa para processamento de dados em lote, oferecendo mecanismos para controle, monitoramento e escalabilidade de tarefas críticas.
 
 <div align="center">
   
