@@ -19,8 +19,8 @@
 <div align="center">
   
   <img src="https://github.com/EullerHenrique/api_pagamento_spring_batch_2025/blob/study/imgs/img_1.png" alt="Imagem 1"  height="250px"/>
+  <br>
   <img src="https://github.com/EullerHenrique/api_pagamento_spring_batch_2025/blob/study/imgs/img_4.png" alt="Imagem 3" height="250px"/>
-  <img src="https://github.com/EullerHenrique/api_pagamento_spring_batch_2025/blob/study/imgs/img_2.png" alt="Imagem 2" height="250px"/>
   <img src="https://github.com/EullerHenrique/api_pagamento_spring_batch_2025/blob/study/imgs/img_3.png" alt="Imagem 3"  height="250px"/>
   
 </div>
