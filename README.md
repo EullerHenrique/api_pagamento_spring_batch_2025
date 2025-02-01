@@ -22,6 +22,7 @@
 ## Proposta:
   - Git Hub:
     - [Desafio Pag Net](https://github.com/Pagnet/desafio-back-end)
+      - "Sua tarefa é criar uma interface web que aceite upload do arquivo CNAB, normalize os dados e armazene-os em um banco de dados relacional e exiba essas informações em tela.."
 
 ### Regras de Negócio:
 
