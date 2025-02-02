@@ -1,6 +1,7 @@
 package com.api.pagamento.config.batch;
 
 import com.api.pagamento.domain.dto.request.transacao.TransacaoRequestDto;
+import com.api.pagamento.domain.enumeration.transacao.tipo.TipoTransacao;
 import com.api.pagamento.domain.model.transacao.Transacao;
 import lombok.RequiredArgsConstructor;
 import org.springframework.batch.core.Job;
@@ -76,10 +77,16 @@ public class TransacaoBatchConfig {
 	@Bean
 	ItemProcessor<TransacaoRequestDto, Transacao> processor() {
 		return item -> new Transacao(
-				null, item.tipo(), null,
-				item.valor().divide(BigDecimal.valueOf(100)),
-				item.cpf(), item.cartao(), null,
-				item.donoDaLoja().trim(), item.nomeDaLoja().trim())
+				null,
+				item.tipo(),
+				null,
+				null,
+				item.cpf(),
+				item.cartao(),
+				null,
+				item.donoDaLoja().trim(),
+				item.nomeDaLoja().trim())
+				.withValor(item.valor())
 				.withData(item.data())
 				.withHora(item.hora());
 	}
