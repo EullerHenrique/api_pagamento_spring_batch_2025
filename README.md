@@ -65,10 +65,6 @@
 
 ![](https://github.com/EullerHenrique/api_pagamento_spring_batch_2025/blob/main/imgs/img_13.png)
 
-### Tela:
-
-![](https://github.com/EullerHenrique/api_pagamento_spring_batch_2025/blob/main/imgs/img_14.png)
-
 ## Referências:
 
    - Notium:
