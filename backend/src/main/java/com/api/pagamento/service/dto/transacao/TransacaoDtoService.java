@@ -1,11 +1,15 @@
 package com.api.pagamento.service.dto.transacao;
 
-import com.api.pagamento.domain.converter.Converter;
-import com.api.pagamento.service.model.transacao.TransacaoModelService;
-import com.api.pagamento.service.util.transacao.TransacaoUtilService;
-import com.api.pagamento.service.valid.transacao.TransacaoValidatorService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Objects;
 
 /**
  * Serviço responsável por retornar dto(s) ou lançar exceção (Se não existir ou se alguma validação falhar)
@@ -16,9 +20,17 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class TransacaoDtoService {
 
-	private final TransacaoModelService transacaoModelService;
-	private final TransacaoUtilService transacaoUtilService;
-	private final TransacaoValidatorService transacaoValidatorService;
-	private final Converter converter;
+	@Value("${file.upload-dir}")
+	private String fileUploadDir;
+
+	public void realizarUploadArquivoCnab(MultipartFile file) throws IOException {
+		String fileName = StringUtils.cleanPath(Objects.requireNonNull(file.getOriginalFilename()));
+		Path targerLocation = Paths.get(fileUploadDir).resolve(fileName);
+		file.transferTo(targerLocation);
+	}
+
+	public void realizarPagamentosPeloCnab(MultipartFile file) {
+
+	}
 
 }

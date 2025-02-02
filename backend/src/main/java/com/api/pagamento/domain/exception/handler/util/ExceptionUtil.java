@@ -1,6 +1,6 @@
 package com.api.pagamento.domain.exception.handler.util;
 
-import com.api.pagamento.domain.dto.response.error.MessageErrorResponseDto;
+import com.api.pagamento.domain.dto.response.sucess_error.error.MessageErrorResponseDto;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 

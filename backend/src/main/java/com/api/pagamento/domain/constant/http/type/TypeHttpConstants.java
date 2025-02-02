@@ -10,4 +10,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = lombok.AccessLevel.PRIVATE)
 public class TypeHttpConstants {
 	public static final String APPLICATION_JSON = "application/json";
+	public static final String APPLICATION_MULTIPART_FORM_DATA = "multipart/form-data";
 }

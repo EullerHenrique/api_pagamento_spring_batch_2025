@@ -1,6 +1,5 @@
 package com.api.pagamento.service.model.transacao;
 
-import com.api.pagamento.domain.repository.transacao.TransacaoRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -13,7 +12,6 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 public class TransacaoModelService {
 
-    private final TransacaoRepository transacaoRepository;
 
 
 }

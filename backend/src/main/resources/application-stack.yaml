@@ -15,5 +15,6 @@ spring:
   sql:
     init:
       platform: postgres
-
+file:
+  upload-dir: tmp
 
