@@ -1,5 +1,6 @@
 package com.api.pagamento.domain.dto.response.sucess_error.sucess;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,7 +16,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class MessageSucessResponseDto {
+	@Schema(example = "200")
 	private int status;
-	private String message;
+	@Schema()
 	private Object data;
+	@Schema(example = "Operação realizada com sucesso!")
+	private String message;
 }

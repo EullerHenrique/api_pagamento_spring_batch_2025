@@ -1,5 +1,6 @@
 package com.api.pagamento.controller.transacao;
 
+import com.api.pagamento.domain.annotation.http.sucess_error.ApiResponsesMessageSucessError;
 import com.api.pagamento.domain.exception.http.BadRequestException;
 import com.api.pagamento.domain.exception.http.InternalServerErrorException;
 import com.api.pagamento.domain.exception.http.NotFoundException;
@@ -10,7 +11,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-
 import static com.api.pagamento.domain.constant.http.message.sucess.SucessConstants.SUCESS_200_ARQUIVO_CNAB_SALVO;
 import static com.api.pagamento.domain.constant.http.type.TypeHttpConstants.APPLICATION_JSON;
 import static com.api.pagamento.domain.constant.http.type.TypeHttpConstants.APPLICATION_MULTIPART_FORM_DATA;
@@ -36,6 +36,7 @@ public class TransacaoController {
 	 * @author Euller Henrique
 	 */
 	@Operation(summary = "Realiza o upload de um arquivo CNAB")
+	@ApiResponsesMessageSucessError
 	@PostMapping(value = "/cnab/upload", produces = APPLICATION_JSON, consumes = APPLICATION_MULTIPART_FORM_DATA)
 	public ResponseEntity<Object> realizarUploadArquivoCnab(@RequestParam("file") MultipartFile file){
 
