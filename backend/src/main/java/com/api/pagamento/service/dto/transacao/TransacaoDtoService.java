@@ -66,7 +66,7 @@ public class TransacaoDtoService {
 	}
 
 	public List<TransacoesLojaResponseDto> listarTransacoesAgrupadasPelaLoja() {
-		List<Transacao> transacoes = transacaoModelService.listarTransacoesAgrupadasPelaLoja();
+		List<Transacao> transacoes = transacaoModelService.listarTransacoesOrdenadasPelaLoja();
 
 		Map<String, TransacoesLojaResponseDto> reportMap = new LinkedHashMap<>();
 

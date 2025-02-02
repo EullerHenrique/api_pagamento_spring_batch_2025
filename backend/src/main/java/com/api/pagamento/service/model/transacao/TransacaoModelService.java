@@ -17,7 +17,7 @@ import java.util.List;
 public class TransacaoModelService {
 	private final TransacaoRepository transacaoRepository;
 
-	public List<Transacao> listarTransacoesAgrupadasPelaLoja() {
+	public List<Transacao> listarTransacoesOrdenadasPelaLoja() {
 		return transacaoRepository.findAllByOrderByNomeDaLojaAscIdDesc();
 	}
 
