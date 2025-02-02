@@ -20,12 +20,6 @@ public record Transacao(
 		@Column("dono_loja") String donoDaLoja,
 		@Column("nome_loja") String nomeDaLoja) {
 
-	public Transacao withValor(BigDecimal valor) {
-		return new Transacao(
-				id, tipo, data, valor, cpf,
-				cartao, hora, donoDaLoja, nomeDaLoja);
-	}
-
 	public Transacao withData(String data) throws ParseException {
 		var dateFormat = new SimpleDateFormat("yyyyMMdd");
 		var date = dateFormat.parse(data);

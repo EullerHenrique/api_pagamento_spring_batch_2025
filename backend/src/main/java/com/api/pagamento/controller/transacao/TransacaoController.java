@@ -1,19 +1,15 @@
 package com.api.pagamento.controller.transacao;
 
 import com.api.pagamento.domain.annotation.http.transacao.TransacaoApiResponses;
-import com.api.pagamento.domain.dto.response.transacao.TransacaoResponseDto;
-import com.api.pagamento.domain.dto.request.transacao.cnab.TransacaoCnabRequestDto;
 import com.api.pagamento.domain.exception.http.BadRequestException;
 import com.api.pagamento.domain.exception.http.InternalServerErrorException;
 import com.api.pagamento.domain.exception.http.NotFoundException;
 import com.api.pagamento.service.dto.transacao.TransacaoDtoService;
 import io.swagger.v3.oas.annotations.Operation;
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
+import org.springframework.web.multipart.MultipartFile;
 
 import static com.api.pagamento.domain.constant.http.type.TypeHttpConstants.APPLICATION_JSON;
 
@@ -23,101 +19,27 @@ import static com.api.pagamento.domain.constant.http.type.TypeHttpConstants.APPL
  * @author Euller Henrique
  */
 @RestController
-@RequestMapping("/transacao/v1")
+@RequestMapping("/transacao")
 @RequiredArgsConstructor
 public class TransacaoController {
 	private final TransacaoDtoService transacaoDtoService;
 
 	/**
-	 * Busca uma transação pelo id
+	 * Realiza o upload de um arquivo CNAB
 	 *
-	 * @param id
-	 * 		Id da transação
+	 * @param file
+	 * 		Arquivo CNAB a ser enviado
 	 * @return ResponseEntity<Object>
-	 *     ResponseEntity com a transação encontrada
+	 *     	ResponseEntity
 	 * @author Euller Henrique
 	 */
-	@Operation(summary = "Busca uma transação pelo id")
+	@Operation(summary = "Realiza o upload de um arquivo CNAB")
 	@TransacaoApiResponses
-	@GetMapping(value = "buscar/{id}", produces = APPLICATION_JSON)
-	public ResponseEntity<Object> buscarTransacao(@PathVariable Long id) {
+	@PostMapping(value = "/cnab/upload", produces = APPLICATION_JSON, consumes = APPLICATION_JSON)
+	public ResponseEntity<Object> realizarUploadCnab(@RequestParam("file") MultipartFile file){
 
 		try {
-			TransacaoResponseDto transacaoDTO = transacaoDtoService.buscarTransacao(id);
-			return ResponseEntity.ok().body(transacaoDTO);
-		} catch (NotFoundException | BadRequestException ex) {
-			throw ex;
-		} catch (Exception ex) {
-			throw new InternalServerErrorException(ex);
-		}
-
-	}
-
-	/**
-	 * Busca todas as transações
-	 *
-	 * @return ResponseEntity<Object>
-	 *     ResponseEntity com todas as transações encontradas
-	 * @author Euller Henrique
-	 */
-	@Operation(summary = "Busca todas as transações")
-	@TransacaoApiResponses
-	@GetMapping(value = "/listar", produces = APPLICATION_JSON)
-	public ResponseEntity<Object> listarTransacoes() {
-
-		try {
-			List<TransacaoResponseDto> transacaoDTOS = transacaoDtoService.listarTransacoes();
-			return ResponseEntity.ok().body(transacaoDTOS);
-		} catch (NotFoundException | BadRequestException ex) {
-			throw ex;
-		} catch (Exception ex) {
-			throw new InternalServerErrorException(ex);
-		}
-
-	}
-
-	/**
-	 * Realiza um pagamento
-	 *
-	 * @param request
-	 * 		Objeto que contém os dados da transação
-	 * @return ResponseEntity<Object>
-	 *     	ResponseEntity com a transação realizada
-	 * @author Euller Henrique
-	 */
-	@Operation(summary = "Realiza um pagamento")
-	@TransacaoApiResponses
-	@PostMapping(value = "/pagar", produces = APPLICATION_JSON, consumes = APPLICATION_JSON)
-	public ResponseEntity<Object> pagar(@RequestBody @Valid TransacaoCnabRequestDto request) {
-
-		try {
-			TransacaoResponseDto transacaoDTO = transacaoDtoService.pagar(request);
-			return ResponseEntity.ok().body(transacaoDTO);
-		} catch (NotFoundException | BadRequestException ex) {
-			throw ex;
-		} catch (Exception ex) {
-			throw new InternalServerErrorException(ex);
-		}
-
-	}
-
-	/**
-	 * Realiza um estorno
-	 *
-	 * @param id
-	 * 		Id da transação
-	 * @return ResponseEntity<Object>
-	 *     ResponseEntity com a transação estornada
-	 * @author Euller Henrique
-	 */
-	@Operation(summary = "Realiza um estorno")
-	@TransacaoApiResponses
-	@PutMapping(value = "/estornar/{id}", produces = APPLICATION_JSON)
-	public ResponseEntity<Object> estornar(@PathVariable Long id) {
-
-		try {
-			TransacaoResponseDto transacaoDto = transacaoDtoService.estornar(id);
-			return ResponseEntity.ok().body(transacaoDto);
+			return null;
 		} catch (NotFoundException | BadRequestException ex) {
 			throw ex;
 		} catch (Exception ex) {
