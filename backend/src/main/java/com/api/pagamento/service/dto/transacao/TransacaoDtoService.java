@@ -1,6 +1,14 @@
 package com.api.pagamento.service.dto.transacao;
 
-import lombok.RequiredArgsConstructor;
+import org.springframework.batch.core.Job;
+import org.springframework.batch.core.JobParameters;
+import org.springframework.batch.core.JobParametersBuilder;
+import org.springframework.batch.core.JobParametersInvalidException;
+import org.springframework.batch.core.launch.JobLauncher;
+import org.springframework.batch.core.repository.JobExecutionAlreadyRunningException;
+import org.springframework.batch.core.repository.JobInstanceAlreadyCompleteException;
+import org.springframework.batch.core.repository.JobRestartException;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -18,21 +26,33 @@ import java.util.Objects;
  * @author Euller Henrique
  */
 @Service
-@RequiredArgsConstructor
 public class TransacaoDtoService {
 
-	@Value("${file.upload-dir}")
-	private String fileUploadDir;
+	private final Path fileStorageLocation;
+	private final JobLauncher jobLauncher;
+	private final Job job;
 
-	public void realizarUploadArquivoCnab(MultipartFile file) throws IOException {
+	public TransacaoDtoService(
+			@Qualifier("jobLauncherAsync") JobLauncher jobLauncher,
+			Job job,
+			@Value("${file.upload-dir}") String fileUploadDir) {
+		this.jobLauncher = jobLauncher;
+		this.job = job;
+		this.fileStorageLocation = Paths.get(fileUploadDir);
+	}
+
+	public void realizarUploadArquivoCnab(MultipartFile file)
+			throws IOException, JobInstanceAlreadyCompleteException, JobExecutionAlreadyRunningException, JobParametersInvalidException,
+			JobRestartException {
 		String fileName = StringUtils.cleanPath(Objects.requireNonNull(file.getOriginalFilename()));
-		Path targetLocation = Paths.get(fileUploadDir).resolve(fileName);
+		Path targetLocation = fileStorageLocation.resolve(fileName);
 		Files.createDirectories(targetLocation.getParent());
 		file.transferTo(targetLocation);
+
+		JobParameters jobParameters = new JobParametersBuilder()
+				.addJobParameter("cnab", file.getOriginalFilename(), String.class, true)
+				.addJobParameter("cnabFile", "file:" + targetLocation, String.class, false)
+				.toJobParameters();
+		jobLauncher.run(job, jobParameters);
 	}
-
-	public void realizarPagamentosPeloCnab(MultipartFile file) {
-
-	}
-
 }
