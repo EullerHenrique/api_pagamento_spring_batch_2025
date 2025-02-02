@@ -1,4 +1,4 @@
-package com.api.pagamento.domain.dto.request.transacao.cnab;
+package com.api.pagamento.domain.dto.request.transacao;
 
 import java.math.BigDecimal;
 
@@ -8,7 +8,7 @@ import java.math.BigDecimal;
  *
  * @author Euller Henrique
  */
-public record TransacaoCnabRequestDto(
+public record TransacaoRequestDto(
 	Integer tipo,
 	String data,
 	BigDecimal valor,

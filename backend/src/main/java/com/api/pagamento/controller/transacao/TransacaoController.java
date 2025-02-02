@@ -51,27 +51,4 @@ public class TransacaoController {
 
 	}
 
-	/**
-	 * Realiza pagamentos por meio de um arquivo CNAB
-	 *
-	 * @param file
-	 * 		Arquivo CNAB a ser enviado
-	 * @return ResponseEntity<Object>
-	 *     	ResponseEntity
-	 * @author Euller Henrique
-	 */
-	@Operation(summary = "Realiza pagamentos por meio de um arquivo CNAB")
-	@PostMapping(value = "/cnab/pagar", produces = APPLICATION_JSON, consumes = APPLICATION_JSON)
-	public ResponseEntity<Object> realizarPagamentosPeloCnab(@RequestParam("file") MultipartFile file){
-
-		try {
-			return null;
-		} catch (NotFoundException | BadRequestException ex) {
-			throw ex;
-		} catch (Exception ex) {
-			throw new InternalServerErrorException(ex);
-		}
-
-	}
-
 }

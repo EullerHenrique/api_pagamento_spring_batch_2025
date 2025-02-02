@@ -1,6 +1,6 @@
 package com.api.pagamento.config.batch;
 
-import com.api.pagamento.domain.dto.request.transacao.cnab.TransacaoCnabRequestDto;
+import com.api.pagamento.domain.dto.request.transacao.TransacaoRequestDto;
 import com.api.pagamento.domain.model.transacao.Transacao;
 import lombok.RequiredArgsConstructor;
 import org.springframework.batch.core.Job;
@@ -46,11 +46,11 @@ public class TransacaoBatchConfig {
 	}
 
 	@Bean
-	public Step step(ItemReader<TransacaoCnabRequestDto> reader,
-			ItemProcessor<TransacaoCnabRequestDto, Transacao> processor,
+	public Step step(ItemReader<TransacaoRequestDto> reader,
+			ItemProcessor<TransacaoRequestDto, Transacao> processor,
 			ItemWriter<Transacao> writer) {
 		return new StepBuilder("step", jobRepository)
-				.<TransacaoCnabRequestDto, Transacao>chunk(1000, transactionManager)
+				.<TransacaoRequestDto, Transacao>chunk(1000, transactionManager)
 				.reader(reader)
 				.processor(processor)
 				.writer(writer)
@@ -59,22 +59,22 @@ public class TransacaoBatchConfig {
 
 	@StepScope
 	@Bean
-	FlatFileItemReader<TransacaoCnabRequestDto> reader(
+	FlatFileItemReader<TransacaoRequestDto> reader(
 			@Value("#{jobParameters['cnabFile']}") Resource resource) {
-		return new FlatFileItemReaderBuilder<TransacaoCnabRequestDto>()
+		return new FlatFileItemReaderBuilder<TransacaoRequestDto>()
 				.name("reader")
 				.resource(resource)
 				.fixedLength()
 				.columns(new Range(1, 1), new Range(2, 9), new Range(10, 19), new Range(20, 30),
 						new Range(31, 42), new Range(43, 48), new Range(49, 62), new Range(63, 80))
 				.names("tipo", "data", "valor", "cpf", "cartao", "hora", "donoDaLoja", "nomeDaLoja")
-				.targetType(TransacaoCnabRequestDto.class)
+				.targetType(TransacaoRequestDto.class)
 				.build();
 	}
 
 
 	@Bean
-	ItemProcessor<TransacaoCnabRequestDto, Transacao> processor() {
+	ItemProcessor<TransacaoRequestDto, Transacao> processor() {
 		return item -> new Transacao(
 				null, item.tipo(), null,
 				item.valor().divide(BigDecimal.valueOf(100)),
