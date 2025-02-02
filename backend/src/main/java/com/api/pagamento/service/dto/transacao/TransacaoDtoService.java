@@ -1,5 +1,9 @@
 package com.api.pagamento.service.dto.transacao;
 
+import com.api.pagamento.domain.dto.response.transacao.TransacoesLojaResponseDto;
+import com.api.pagamento.domain.model.transacao.Transacao;
+import com.api.pagamento.domain.repository.transacao.TransacaoRepository;
+import com.api.pagamento.service.model.transacao.TransacaoModelService;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.JobParameters;
 import org.springframework.batch.core.JobParametersBuilder;
@@ -15,10 +19,11 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Objects;
+import java.util.*;
 
 /**
  * Serviço responsável por retornar dto(s) ou lançar exceção (Se não existir ou se alguma validação falhar)
@@ -31,14 +36,18 @@ public class TransacaoDtoService {
 	private final Path fileStorageLocation;
 	private final JobLauncher jobLauncher;
 	private final Job job;
+	private final TransacaoModelService transacaoModelService;
 
 	public TransacaoDtoService(
 			@Qualifier("jobLauncherAsync") JobLauncher jobLauncher,
 			Job job,
-			@Value("${file.upload-dir}") String fileUploadDir) {
+			@Value("${file.upload-dir}") String fileUploadDir,
+			TransacaoModelService transacaoModelService
+			) {
 		this.jobLauncher = jobLauncher;
 		this.job = job;
 		this.fileStorageLocation = Paths.get(fileUploadDir);
+		this.transacaoModelService = transacaoModelService;
 	}
 
 	public void realizarUploadArquivoCnab(MultipartFile file)
@@ -54,5 +63,24 @@ public class TransacaoDtoService {
 				.addJobParameter("cnabFile", "file:" + targetLocation, String.class, false)
 				.toJobParameters();
 		jobLauncher.run(job, jobParameters);
+	}
+
+	public List<TransacoesLojaResponseDto> listarTransacoesAgrupadasPelaLoja() {
+		List<Transacao> transacoes = transacaoModelService.listarTransacoesAgrupadasPelaLoja();
+
+		Map<String, TransacoesLojaResponseDto> reportMap = new LinkedHashMap<>();
+
+		transacoes.forEach(transacao -> {
+			var nomeDaLoja = transacao.nomeDaLoja();
+			var valor = transacao.valor();
+
+			reportMap.compute(nomeDaLoja, (key, existingReport) -> {
+				TransacoesLojaResponseDto report = (existingReport != null) ? existingReport
+						: new TransacoesLojaResponseDto(BigDecimal.ZERO, key, new ArrayList<>());
+				return report.addTotal(valor).addTransacao(transacao);
+			});
+		});
+
+		return new ArrayList<>(reportMap.values());
 	}
 }
