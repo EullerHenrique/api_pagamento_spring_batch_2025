@@ -27,6 +27,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 import javax.sql.DataSource;
 import java.math.BigDecimal;
 
+@Configuration
 @RequiredArgsConstructor
 public class BatchConfig {
 

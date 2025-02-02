@@ -15,6 +15,9 @@ spring:
   sql:
     init:
       platform: postgres
+  batch:
+    job:
+      enabled: false
 file:
   upload-dir: tmp
 
