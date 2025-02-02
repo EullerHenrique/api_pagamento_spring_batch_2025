@@ -10,6 +10,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+
+import static com.api.pagamento.domain.constant.http.message.sucess.SucessConstants.SUCESS_200_ARQUIVO_CNAB_SALVO;
 import static com.api.pagamento.domain.constant.http.type.TypeHttpConstants.APPLICATION_JSON;
 import static com.api.pagamento.domain.constant.http.type.TypeHttpConstants.APPLICATION_MULTIPART_FORM_DATA;
 
@@ -39,8 +41,7 @@ public class TransacaoController {
 
 		try {
 			transacaoDtoService.realizarUploadArquivoCnab(file);
-			MessageSucessResponseDto messageSucessResponseDto = MessageSucessResponseDto.builder().status(200)
-					.message("Arquivo CNAB enviado com sucesso").build();
+			MessageSucessResponseDto messageSucessResponseDto = MessageSucessResponseDto.builder().status(200).message(SUCESS_200_ARQUIVO_CNAB_SALVO).build();
 			return ResponseEntity.status(200).body(messageSucessResponseDto);
 		} catch (NotFoundException | BadRequestException ex) {
 			throw ex;
