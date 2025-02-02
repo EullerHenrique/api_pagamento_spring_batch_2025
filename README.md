@@ -68,7 +68,7 @@
 ## Referências:
 
    - Notium:
-    - [Desafio Pag Net-Documento de Arquitetura](https://giulianabezerra.notion.site/Desafio-Backend-Pagnet-5bbd08f103e04d6d866b028cec6688b5)
+     - [Desafio Pag Net-Documento de Arquitetura](https://giulianabezerra.notion.site/Desafio-Backend-Pagnet-5bbd08f103e04d6d866b028cec6688b5)
    
   - Slides:  
     - [Palestra Giuliana Bezerra](https://github.com/EullerHenrique/api_pagamento_spring_batch_2025/blob/main/slides/slides_giuliana_bezerra.pdf)
